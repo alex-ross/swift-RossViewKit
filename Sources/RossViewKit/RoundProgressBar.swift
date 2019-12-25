@@ -3,8 +3,8 @@ import SwiftUI
 @available(iOS 13.0, macOS 10.15, *)
 public struct RoundProgressBar: View {
     @State private var show = false
-    @State public var progress
-    @State public var max
+    @State public var progress: Double
+    @State public var max: Double
     @State public var color1: Color
     @State public var color2: Color
 
