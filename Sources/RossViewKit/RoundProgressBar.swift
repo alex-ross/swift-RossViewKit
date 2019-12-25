@@ -1,19 +1,19 @@
 import SwiftUI
 
 @available(iOS 13.0, macOS 10.15, *)
-struct RoundProgressBar: View {
+public struct RoundProgressBar: View {
     @State private var show = false
-    @State var progress = 1.0
-    @State var max = 1.0
-    @State var color1: Color = .primary
-    @State var color2: Color = .secondary
+    @State public var progress = 1.0
+    @State public var max = 1.0
+    @State public var color1: Color = .primary
+    @State public var color2: Color = .secondary
 
     /// Get the progress factor
     private var progressFactor: Double {
         [progress / max, max].min()!
     }
 
-    var body: some View {
+    public var body: some View {
         GeometryReader { g in
             ZStack {
                 Circle()
