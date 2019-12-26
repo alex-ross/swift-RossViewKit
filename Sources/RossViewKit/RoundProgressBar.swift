@@ -2,18 +2,18 @@ import SwiftUI
 
 @available(iOS 13.0, macOS 10.15, *)
 public struct RoundProgressBar: View {
+    public init(progress: Double = 0, max: Double = 1, color1: Color = .primary, color2: Color = .secondary) {
+        self._progress = State(wrappedValue: progress)
+        self._max = State(wrappedValue: max)
+        self._color1 = State(wrappedValue: color1)
+        self._color2 = State(wrappedValue: color2)
+    }
+
     @State private var show = false
     @State public var progress: Double
     @State public var max: Double
     @State public var color1: Color
     @State public var color2: Color
-
-    public init(progress: Double = 0, max: Double = 1, color1: Color = .primary, color2: Color = .secondary) {
-        self.progress = progress
-        self.max = max
-        self.color1 = color1
-        self.color2 = color2
-    }
 
     /// Get the progress factor
     private var progressFactor: Double {
