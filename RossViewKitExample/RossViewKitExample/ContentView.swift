@@ -2,23 +2,29 @@ import SwiftUI
 import RossViewKit
 
 struct ContentView: View {
+    @State private var progress: Double = 0.0
+
     var body: some View {
         ScrollView {
             VStack(spacing: 90) {
                 Text("Round progress bar")
                     .font(.title)
-                RoundProgressBar(progress: 0.5, color1: Color(#colorLiteral(red: 0.7254902124, green: 0.4784313738, blue: 0.09803921729, alpha: 1)), color2: Color(#colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)))
+
+                Text("Progress \(progress)")
+                Slider(value: $progress, in: 0.0...1.0)
+
+                RoundProgressBar(progress: $progress, color1: Color(#colorLiteral(red: 0.7254902124, green: 0.4784313738, blue: 0.09803921729, alpha: 1)), color2: Color(#colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)))
                     .frame(width: 100, height: 100)
                 HStack {
                     Spacer()
-                    RoundProgressBar(progress: 0.3)
+                    RoundProgressBar(progress: $progress)
                         .frame(width: 100, height: 100)
                     Spacer()
-                    RoundProgressBar(progress: 1.00, color1: Color(#colorLiteral(red: 0.4392156899, green: 0.01176470611, blue: 0.1921568662, alpha: 1)), color2: Color(#colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)))
+                    RoundProgressBar(progress: $progress, color1: Color(#colorLiteral(red: 0.4392156899, green: 0.01176470611, blue: 0.1921568662, alpha: 1)), color2: Color(#colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)))
                         .frame(width: 100, height: 100)
                     Spacer()
                 }
-                RoundProgressBar(progress: 0.88, color1: Color(#colorLiteral(red: 0.1019607857, green: 0.2784313858, blue: 0.400000006, alpha: 1)), color2: Color(#colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)))
+                RoundProgressBar(progress: $progress, color1: Color(#colorLiteral(red: 0.1019607857, green: 0.2784313858, blue: 0.400000006, alpha: 1)), color2: Color(#colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)))
                     .frame(width: 200, height: 200)
             }
         }
